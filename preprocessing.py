@@ -4,7 +4,7 @@
         - data_channel_is_{channel}
     Y las convierte en una respectiva columna
         - weekday {monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekend} 
-        - channel {lifestyle, entertainment, bus, socmed, tech, world, nA}
+        - channel {lifestyle, entertainment, bus, socmed, tech, world, viral}
 '''
 import pandas as pd
 from typing import List
@@ -16,7 +16,7 @@ def first_value_one(cols, s):
             return col
 
     if 'data_channel_is_bus' in cols:  # Solo deberia faltar algun valor en los cols channel
-        return pd.NA
+        return 'viral'
 
 
 def drop_cols(df: pd.DataFrame, cols: List[str]) -> pd.DataFrame:
