@@ -23,7 +23,16 @@ def write_data(fp: TextIOWrapper, df: pd.DataFrame) -> None:
 
 
 def get_attributes_types(df: pd.DataFrame) -> AttributesDescription:
-    return {k: df[k].unique() if v == 'object' else 'numeric' for k, v in df.dtypes.items()}
+    types = {}
+    for k, v in df.dtypes.items():
+        if k == 'url':
+            types[k] = 'string'
+        elif v == 'object':
+            types[k] = df[k].unique()
+        else:
+            types[k] = 'numeric'
+
+    return types
 
 
 def to_arff(path: str, df: pd.DataFrame, attrs_description: AttributesDescription, relation: str) -> None:
