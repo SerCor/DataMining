@@ -6,9 +6,9 @@ import pandas as pd
 
 def main():
     # TODO: Falta rellenar la informacion sobre las k particiones y el nombre de la columna clasificadora
-    dataset = 'data.csv'
+    dataset = 'data3.csv'
     k = 5  # FIXME:
-    class_col = 'num_imgs'  # FIXME:
+    class_col = 'shares'  # FIXME:
 
     # Lectura de dataset original. Ya debe tener la columna clase
     print('Lectura de dataset...')
