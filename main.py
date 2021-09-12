@@ -24,7 +24,7 @@ def main():
     validation_steps = split_dataset(normalized_df, k=k, class_col=class_col)
 
     print('Escritura de particiones...')
-    attrs_description = get_attributes_types(df)
+    attrs_description = get_attributes_types(normalized_df)
     for index, (df_train, df_test) in enumerate(validation_steps):
         to_arff(f'train_{index}.arff', df_train, attrs_description, 'News')
         to_arff(f'test_{index}.arff', df_test, attrs_description, 'News')
