@@ -26,7 +26,8 @@ def get_attributes_types(df: pd.DataFrame) -> AttributesDescription:
     types = {}
     for k, v in df.dtypes.items():
         if k == 'url':
-            types[k] = 'string'
+            # types[k] = 'string'
+            types[k] = df[k].unique()
         elif v == 'object':
             types[k] = df[k].unique()
         else:
